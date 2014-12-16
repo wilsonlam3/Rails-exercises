@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+
+  before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+  
   def new
     @article = Article.new
   end
@@ -7,15 +10,17 @@ class ArticlesController < ApplicationController
   	@article = Article.new(article_params)
     if @article.save
       flash[:notice] = "Article successfully created!"
-      redirect_to @article
+#      redirect_to @article
+      redirect_to :action => 'index'
+
     else
-      flash[:error] = "There was a problem saving your article"
-      render 'new'
+      flash[:error]
+      # = "There was a problem saving your article"
+      render :new
     end
   end
 
   def index
-    @current_time = Time.now
     @articles = Article.all
   end
 
@@ -49,4 +54,5 @@ class ArticlesController < ApplicationController
     def article_params
     	params.require(:article).permit(:title, :text)
     end
+
 end

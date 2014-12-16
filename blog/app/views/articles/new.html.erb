@@ -1,18 +1,7 @@
-<%= form_for :article, url: articles_path  do |f| %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
+<div class='container'>
 
-  <p>
-    <%= f.label :text %><br>
-    <%= f.text_field :text %>
-  </p>
+  <h1>New article</h1>
+  <%= render 'form' %>
+  <%= link_to 'Back', articles_path %>
 
-  <p>
-    <%= f.submit %>
-  </p>
- 
-<%= link_to 'Back', articles_path %>
-
-<% end %>
+</div>

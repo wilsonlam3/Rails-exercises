@@ -1,3 +1,9 @@
-<h1> Welcome to My Blog Website</h1>
-<%= link_to 'My Blog', controller: 'articles' %>
-
+<div class="jumbotron">
+  <div class="container">
+    <h1>Welcome to My Blog Website!</h1>
+    <p>In this amazing Rails app, you can search for articles and lots more!</p>
+    <p>
+      <%= link_to("Check out my articles!", controller: 'articles', class: "btn btn-primary btn-lg") %>
+    </p>
+  </div>
+</div>

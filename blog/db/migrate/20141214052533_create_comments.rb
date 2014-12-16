@@ -3,7 +3,8 @@ class CreateComments < ActiveRecord::Migration
     create_table :comments do |t|
       t.string :commenter
       t.text :body
-      t.references :article, index: true   # auto add a column `article_id`
+
+      t.references :article, index: true
 
       t.timestamps
     end

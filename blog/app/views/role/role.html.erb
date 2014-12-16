@@ -1,0 +1,27 @@
+<h2>Assign Role:</h2>
+<% form_tag :action => 'assign' do %>
+
+   <p><label for="user_user_name">User<br/>
+   <select name="user">
+   <% @users.each do |user| %>
+   <option value="<%= user.id %>">
+   <%= user.user_name %>
+   </option>
+   <% end %>
+   </select>
+   </p>
+
+
+   <p><label for="role_role_name">Role<br/>
+   <select name="role">
+   <% @roles.each do |role| %>
+   <option value="<%= role.id %>">
+   <%= role.name %>
+   </option>
+   <% end %>
+   </select>
+   </p>
+
+     <%= submit_tag "Assign Role" %>
+   <% end %>
+   <%= link_to 'Back', :action => 'list' %>

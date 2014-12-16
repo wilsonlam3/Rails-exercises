@@ -1,19 +1,40 @@
 <!DOCTYPE html>
+
 <html>
-<head>
-  <title>Blog</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+   	<head>
+      <title>Blog</title>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      <%= csrf_meta_tags %>
+    </head>
 
-<%= render partial: 'layouts/header' %>
 
-<%= flash[:notice] %>
-<%= flash[:error] %>
+  <body>
 
-<%= yield %>
 
-</body>
+      <%= render partial: 'layouts/header' %>
+
+
+
+
+
+
+
+
+      <!--%= flash[:notice] % -->
+      <% unless flash[:notice].blank? %>
+        <div id="notification"><%= flash[:notice] %></div>
+      <% end %>
+
+      <p class="error">
+        <%= flash[:error] %>
+      </p>
+
+
+
+
+
+      <%= yield %>
+
+  </body>
 </html>
